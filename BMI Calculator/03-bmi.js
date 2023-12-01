@@ -14,8 +14,7 @@ form.addEventListener("submit", function (e) {
     results.innerHTML = `Please enter a valid ${weight}`;
   } else {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
-    //toFixed use kiya h kyunki 2 decimals tak fixed rakhna h value ko
-    // weight in kg divided by height in meters squared
+
     results.innerHTML = `<span>${bmi}</span>`;
   }
 });
