@@ -1,1 +1,32 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TicTacToe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>TicTacToe</h2>
+  <div class="container">
+    <div class="game">
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+    </div>
+  </div>
+  <div class="msg-container hide">
+    <p class="msg"></p>
+  </div>
+  <button class="resetBtn">Reset Game</button>
+  <br>
+  <button class="newBtn">New Game</button>
+</body>
+<script src="script.js"></script>
+</html>
