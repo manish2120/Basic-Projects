@@ -101,7 +101,7 @@ $sql = mysqli_query($connect, $insertData);
             </div>
             <div class="form-floating">
               <textarea class="form-control mb-3" placeholder="describe your title..."
-                id="floatingTextarea2 descriptionEdit" name="descriptionEdit" style="height: 100px"></textarea>
+                id="descriptionEdit" name="descriptionEdit" style="height: 100px"></textarea>
               <label for="floatingTextarea2 descriptionEdit">Description</label>
             </div>
           </form>
@@ -156,8 +156,10 @@ $sql = mysqli_query($connect, $insertData);
         let title = tr.getElementsByTagName('td')[0].innerText;
         let description = tr.getElementsByTagName('td')[1].innerText;
         console.log(title, description);
-        titleEdit.value = title;
-        descriptionEdit.value = description;
+        let titleEdit = document.getElementById('titleEdit').value;
+        let descriptionEdit = document.getElementById('descriptionEdit').value;
+        titleEdit = title;
+        descriptionEdit = description;
         $('#editModal').modal('toggle');
       })
     })
