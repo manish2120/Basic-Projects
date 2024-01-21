@@ -68,10 +68,10 @@ $sql = mysqli_query($connect, $insertData);
       while($row = mysqli_fetch_assoc($connData)) {
         $sno = $sno + 1;
         echo '<tr>
-        <th scope="row">' . $row["sr.no"] . '</th>
+        <th scope="row">' . $sno . '</th>
         <td>' . $row["title"] . '</td>
         <td>' . $row["description"] . '</td>
-        <td><button class="btn btn-primary edit">Edit</button>  <a>Delete</a></td></tr>';
+        <td><button class="btn btn-primary edit" id=' . $row["sr.no"] . '>Edit</button>  <a>Delete</a></td></tr>';
       };
       ?>
 
@@ -86,6 +86,7 @@ $sql = mysqli_query($connect, $insertData);
 
   <!-- Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <input type="hidden" name="snoEdit" id="snoEdit">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -101,7 +102,7 @@ $sql = mysqli_query($connect, $insertData);
             </div>
             <div class="form-floating">
               <textarea class="form-control mb-3" placeholder="describe your title..."
-                id="descriptionEdit" name="descriptionEdit" style="height: 100px"></textarea>
+              id="descriptionEdit" name="descriptionEdit" style="height: 100px"></textarea>
               <label for="floatingTextarea2 descriptionEdit">Description</label>
             </div>
           </form>
@@ -114,8 +115,6 @@ $sql = mysqli_query($connect, $insertData);
       </div>
     </div>
   </div>
-
-
 
 
   <!-- SCRIPTS -->
@@ -147,7 +146,7 @@ $sql = mysqli_query($connect, $insertData);
 
   <script>
     let edits = document.getElementsByClassName('edit');
-
+    
     Array.from(edits).forEach((element) => {
       element.addEventListener('click', (e) => {
         console.log(e.target);
@@ -156,10 +155,13 @@ $sql = mysqli_query($connect, $insertData);
         let title = tr.getElementsByTagName('td')[0].innerText;
         let description = tr.getElementsByTagName('td')[1].innerText;
         console.log(title, description);
-        let titleEdit = document.getElementById('titleEdit').value;
-        let descriptionEdit = document.getElementById('descriptionEdit').value;
-        titleEdit = title;
-        descriptionEdit = description;
+        let titleEdit = document.getElementById('titleEdit');
+        let descriptionEdit = document.getElementById('descriptionEdit');
+        let snoEdit = document.getElementById('snoEdit');
+        titleEdit.value = title;
+        descriptionEdit.value = description;
+        snoEdit = e.target.id;
+        console.log(e.target.id)
         $('#editModal').modal('toggle');
       })
     })
