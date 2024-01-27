@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0c2d57;
+}
+
+.container {
+  height: 60vh;
+  width: 60vh;
+  background-color: #3652ad;
+}
+
+.input-fields input {
+  outline: none;
+  padding: 0.5rem 0.7rem;
+}
+
+.btns {
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  background-color: #864af9;
+  color: #fff;
+}
+
+.list-container {
+  list-style: none;
+  width: 75%;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.list-container .changeColor {
+  background-color: green;
+}
+
+.list-container {
+  margin-bottom: 0.5rem;
+}
