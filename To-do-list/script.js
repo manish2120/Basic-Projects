@@ -4,7 +4,7 @@ const tasks = document.querySelector(".list-container");
 
 //input event listeners to check the input value
 taskInput.addEventListener("input", () => {
-  const inputVal = taskInput.value.trim();
+  let inputVal = taskInput.value.trim();
 
   if (inputVal === "") {
     addBtn.setAttribute("disabled", true);
@@ -15,23 +15,30 @@ taskInput.addEventListener("input", () => {
 
 addBtn.addEventListener("click", () => {
   const inputVal = taskInput.value.trim();
-
+  
   if (inputVal === "") {
     addBtn.setAttribute("disabled", true);
     return;
   }
-
+  
   addBtn.removeAttribute("disabled");
-
+  
+  
   let taskList = document.createElement("li");
   taskList.innerHTML = `<div>${inputVal}</div>
-    <div class="taskBtns">
-      <button class="btns border-0 ms-2 completeBtn">Complete</button>
-      <button class="btns border-0 ms-2 delBtn">Delete</button>
-    </div>`;
-
+  <div class="taskBtns">
+  <button class="btns border-0 ms-2 completeBtn">Complete</button>
+  <button class="btns border-0 ms-2 delBtn">Delete</button>
+  </div>`;
+  
   tasks.appendChild(taskList);
+  
+  taskInput.value = ""; 
 
+    if(tasks.childNodes.length > 0) {
+      tasks.style.padding = "1rem";
+    }
+    
   const completeBtn = taskList.querySelector(".completeBtn");
   const delBtn = taskList.querySelector(".delBtn");
 
