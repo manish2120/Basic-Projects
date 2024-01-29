@@ -42,8 +42,20 @@ body {
 .list-container {
   margin-bottom: 0.5rem;
   width: 85%;
-  padding-left: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  border-radius: 10px;
+  background-color: #0c2d57;
+}
+
+::-webkit-scrollbar {
+  background-color: #00000040;
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0000005e;
+  border-radius: 6px;
 }
 
 li {
